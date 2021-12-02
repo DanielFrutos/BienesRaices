@@ -1,0 +1,442 @@
+htmls{
+    font-size: 62.5%; /** RESET PARA REMS - 62.5% == 10px de 16 px (PARA APLICAR MEJOR LOS REMS y no complicarnos con las cuentas**/
+    box-sizing: border-box;
+}
+*,*:before,*:after{
+    box-sizing: inherit;
+}
+body {
+    font-family: 'STIX Two Math', serif;
+    font-size: 1.4rem;
+    line-height: 2rem;
+}
+/** GLOBALES **/
+img/*ESTO ESTA EN TODOS LOS PROYECTOS*/{
+    max-width: 100%;
+}
+.contenedor{
+    width: 95%;
+    max-width: 80rem; /**ANCHO MAXIMA**/
+    margin: 0 auto; /**(atajo/ es igual que poner margin: 0 auto 0 auto) CENTRAR EL MARGIN (completo: margin-left: auto; margin-right: auto;)**/
+}
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 2.4rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h4{
+    font-size: 1.8rem;
+}
+/* UTILIDADES*/
+.seccion{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.fw-300{
+    font-weight: 300;
+}
+.text-center{
+    text-align: center;
+}
+.d-block{
+    display: block!important; /*USAMOS IMPORTANT PARA QUE SE APLIQUE AUNQUE ABAJO TENGA OTRO DISPLAY (EN ESTE CASO EL .BOTON)*/
+}
+.l-h{
+    line-height: 2.9rem;
+}
+.l-h2{
+    line-height: 3.8rem;
+}
+.contenido-centrado{
+    max-width: 900px;
+}
+/**  BOTONES  **/
+.boton{
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none; /* ELIMINA EL SUBRAYADO DE LOS BOTONES*/
+    font-size: 1.4rem; /*AGRANDA LA LETRA*/
+    padding: 1rem 3rem; /*USAMOS PADDING Y NO MARGIN PORQUE EL MARGIN AFECTA LO DE AFUERA, PADDING LO DE ADENTRO*/
+    margin-top: 3rem;
+    display: inline-block; /*POR DEFAULT NO PERMITE AGREGAR MARGEN A LOS BOTONES, ESTO LO DESAHABILITA PARA PODER USAR MARGIN*/
+    text-align: center;
+    border: none;
+    display: block;
+    flex: 0 0 100%;
+}
+@media (min-width: 768px) {
+    .boton{
+        display: inline-block;
+        flex: 0 0 auto;
+    }
+}
+.boton:hover{
+    cursor: pointer; /*FUERZA QUE APAREZCA EL CURSOR DE LA MANO PARA EL SUBMIT DE CONTACTO*/
+}
+.boton-amarillo{
+    background-color: #e08709;
+}
+.boton-verde{
+    background-color: #71b100;
+}
+
+/* HEADER */
+
+.site-header{
+    background-color: #333333;
+    padding: 1rem 0 3rem 0;
+}
+.site-header.inicio{
+    background-image: url(../img/header.jpg);
+    background-position: center center; /* POSICIONA CORRECTAMENTE EL FONDO*/
+    background-size: cover;
+    height: 100vh;
+    min-height: 60rem;
+}
+.contenido-header{
+    height: 100%; /**TOMA TODA LA ALTURA DEL PADRE, OSEA EL HEADER PRINCIPAL**/
+    display: flex; /**POR DEFECTO, ESTO SOLO AFECTA DE IZQ-DER**/
+    flex-direction: column; /**TA PIOLA**/
+    justify-content: space-between;
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .contenido-header{
+        text-align: left;
+    }
+}
+.contenido-header h1 /**SOLO QUIERO AFECTA EL UNICO H1**/ {
+    color: white;
+    padding-bottom: 2rem; /**AGREGA SEPARACION DESDE ABAJO**/
+    max-width: 70rem; /**MAXIMO DE ANCHURA (PARA SEPARAR EL TEXTO)**/
+    line-height: 1.8; /**AGREGA UN INTERLINEADO (SEPARACION ENTRE RENGLONES)**/
+}
+.barra{
+    padding-top: 3rem;
+}
+@media (min-width: 768px) {
+    .barra{
+        display: flex; /** APLICAMOS FLEX PORQUE ES EL NUEVO STANDAR PARA POSICION ELEMENTOS**/
+        justify-content: space-between; /* AGREGA UNA SEPARACION ENTRE EL CONTENIDO*/
+        align-items:center; /* ALINEA VERTICALMENTE LOS ITEMS*/
+    }
+}
+
+/* NAVEGACION */
+.navegacion{
+    margin-top: 3rem;
+}
+.navegacion a {
+    color:white;
+    text-decoration: none;
+    font-size: 1.5rem; /**USAMOS REM Y NO PIX YA QUE LOS PIX QUEDARON DESACTULZIADOS DEBIDO A LA CANTIDAD DE DISPOSITIVOS (1.8rems == 18px**/
+    display: block;/*ESTO HACE QUE CADA UNO DE LOS ENLACES TOMEN UNA LINEA (VERSION MOVIL)*/
+}
+@media (min-width: 768px) {
+    .navegacion a{
+        display: inline-block;
+        margin-right: 2rem;
+        font-size: 1.3rem;
+    }
+    .navegacion a:last-of-type{
+        margin: 0;
+    }/* ELIMINA EL MARGEN DEL ULTIMO "a"*/
+}
+.navegacion a:hover{
+    color:black;
+} /* CUANDO PASO EL CURSOR POR ENCIMA CAMBIA DE COLOR*/
+
+/** MOBILE MENU **/
+.mobile-menu img{
+    width: 3rem;
+}
+@media (min-width: 768px) {
+    .mobile-menu{
+        display: none;
+    }
+}
+.navegacion:target{
+    display: block;
+}
+.navegacion{
+    display: none;
+}
+@media (min-width: 768px) {
+    .navegacion{
+        display:block;
+    }
+}
+/** ICONOS NOSOTROS **/
+@media (min-width: 768px) {
+    .iconos-nosotros{
+        display: flex; /** ACOMODA LOS 3 ICONOS HORIZONTALMENTE**/
+        justify-content: space-between;
+    }
+}
+.icono{
+    text-align: center; /**ALINEA EL TEXTO AL CENTRO**/
+    margin-top: 2rem;
+}
+@media (min-width: 768px) {
+    .icono{
+        flex-basis: calc(33.3% - 1rem); /**TAMAÑO ENTRE CADA ICONO (le restamos 1 rem para mejorar el diseño)**/
+    }
+}
+.icono h3 {
+    text-transform: uppercase;
+}
+
+/**  ANUNCIOS  **/
+@media (min-width: 768px) {
+    .contenedor-anuncios{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+.anuncio{
+    border: 1px solid #b5b5b5;
+    background-color: #f5f5f5;
+    margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+    .anuncio{
+        flex: 0 0 calc(33.3% - 1rem);/*ESTO ES UNA VERSION CORTA A LAS 3 FUNCIONES DE ABAJO*/
+        flex-grow: 0; /*EN 1 EL CONTENIDO CRECE SI HAY ESPACIO DISPONIBLE, EN 0 NO CRECE Y SE QUEDA CON EL TAMAÑO BASE*/
+        flex-shrink: 0; /*EN 1 EL CONTENIDO SE ENCOJE SI ES POSIBLE, EN 0 NO SE ENCOJE*/
+        flex-basis: calc(33.3% - 1rem); /*DEFINIMOS UN TAMAÑO FIJO*/
+    }
+}
+.contenido-anuncio{
+    padding: 2rem; /*ESTO AGREGA UN MARCO PARA POSICIONAR EL CONTENIDO*/
+}
+.contenido-anuncio h3,p{
+    margin: 0; /*POR DEFAULT LOS "H3" Y "P" VIENEN CON MARGEN, ESTO LO SACA*/
+}
+.precio{
+    color: #71b100;
+    font-weight: 700; /*DEFAULTS del font-weight: p=400 h1=700*/
+}
+.iconos-caracteristicas{
+    list-style: none; /*CAMBIA EL FORMATO DE LISTAS*/
+    padding: 0; /*ELIMINA LA SEPARACION QUE VIENE POR DEFAULT*/
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 400px; /*LIMITA LA SEPARACION*/
+    flex: 1; /*ESTO ARREGLA LA VISTA DE ANUNCIOS*/
+}
+.iconos-caracteristicas li{
+    flex: 1; /*ORDENA MEJOR LA SEPARACION ENTRE ICONOS*/
+    display: flex; /*HACE QUE EL ICONO Y EL PARRAFO ESTEN AL MISMO NIVEL*/
+}
+.iconos-caracteristicas li img{
+    margin-right: 1rem;
+}
+.ver-todas{
+    /* (lo comento porque hace que se vea mal el boton) display: flex; CON ESTAS 2 LINEAS PONEMOS UN TEXTO EN LA PARTE DERECHA DE LA PAGINA*/
+    justify-content: flex-end;
+}
+
+/**  CONTACTO HOME  **/
+.imagen-contacto{
+    background-image: url(../img/encuentra.jpg);
+    background-position: center center;/*POSICIONAMOS EL FONDO EN EL CENTRO DE LA IMAGEN*/
+    background-size:cover; /*PARA QUE SE VEA MEJOR LA IMAGEN*/
+    height: 40rem; /*AGRANDAMOS LA ALTURA*/
+    display: flex; /*CENTRAR HORIZONTALMENTE EL CONTENIDO*/
+    align-items: center; /*PARA CENTRAR VERTICALMENTE EL CONTENIDO*/
+}
+.contenido-contacto{
+    flex: 0 0 95%; /*FACTOR DE CRECIMIENTO*/
+    color: white;
+}
+.contenido-contacto p{
+    font-size: 1.8rem;
+}
+
+/**  SECCION INFERIOR  **/
+@media (min-width: 768px) {
+    .seccion-inferior{
+        display: flex;
+        justify-content: space-between;
+    }
+    .seccion-inferior .blog{
+        flex-basis: 60%;
+    }
+    .seccion-inferior .testimoniales{
+        flex-basis: calc(40% - 2rem);
+    }
+}
+.entrada-blog{
+    margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+    .entrada-blog{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.entrada-blog:last-of-type{
+    margin-bottom: 0;
+}
+@media (min-width: 768px) {
+    .entrada-blog .imagen{
+        flex-basis: 40%;
+    }
+    .entrada-blog .texto-entrada{
+        flex-basis: calc(60% - 3rem);
+    }
+}
+.texto-entrada a{
+    color:black;
+    text-decoration: none;
+}
+.texto-entrada h4{
+    margin: 0;
+    line-height: 1.3;
+}
+.texto-entrada h4::after{
+    content: '';
+    display: block;
+    width: 15rem;
+    height: .5rem;
+    background-color: #71b100;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}/*ESTO SE LO CONOCE POR PSEUDOELEMENTO PORQUE NO SE LO PUEDE SELECCIONAR*/
+.texto-entrada span{
+    color: #e08709;
+}
+
+/**  TESTIMONIALES  **/
+.testimonial{
+    background-color: #71b100;
+    font-size: 1.4rem;
+    padding: 2rem;
+    color: white;
+    border-radius: 2rem; /*REDONDEA LAS PUNTAS*/
+}
+.testimonial p{
+    text-align: right;
+}
+.testimonial blockquote::before{
+    content: '';
+    background-image: url(../img/comilla.svg);
+    width: 3rem;
+    height: 3rem;
+    position: absolute; /*PERMITE USAR BOTTOM,RIGHT,TOP,LEFT PARA COLOCAR (EN ESTE CASO) NUESTRA IMAGEN*/
+    left: -2rem;
+
+}
+.testimonial blockquote{
+    position: relative;/*ES IMPORTANTE ESTE RELATIVE PORQUE SINO EL ABSOLUTE TOMARIA TODA LA PAGINA COMO REFERENCIA*/
+    padding-left: 3rem;
+    font-weight: 300;
+}
+
+/**  FOOTER  **/
+.site-footer{
+    background-color:#333333;
+    margin: 0;
+}
+.copyright{
+    margin: 0;
+    color: white;
+}
+.contenedor-footer{
+    padding: 1.5rem 0;
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .contenedor-footer{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.site-footer nav{
+    display: none;
+}
+@media (min-width: 768px) {
+    .site-footer nav{
+        display: block;
+    }
+}
+
+/**  NOSOTROS  **/
+@media (min-width: 768px) {
+    .contenido-nosotros{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /*ESTO ES LO MISMO QUE PONER "50% 50%" fr=fraccion*/
+        grid-column-gap: 2rem;
+    }
+}
+.texto-nosotros blockquote{
+    font-weight: 900rem;
+    font-size: 2rem;
+    margin: 0;
+    padding: 1rem 0 3rem 0;
+}
+
+/**  ANUNCIO  **/
+.resumen-propiedad{
+    align-items: center;/*ALINEA VERTICALMENTE*/
+}
+@media (min-width:768px ) {
+    .resumen-propiedad{
+        display: flex;
+        justify-content: space-between; /*ESTO POR SI SOLO SE COMPRIME ASI QUE ES NECESARIO AGREGARLE EN LA CLASE PADRE UN flex: 1;*/
+    }
+}
+
+/**  CONTACTO **/
+.contacto p{
+    font-size: 1.2rem;
+    color: #4f4f4f;
+    margin: 2rem 0 0 0;
+}
+legend{
+    font-size: 2.2rem;
+    color: #333333;
+}
+fieldset{
+    margin-bottom: 1rem;
+}
+label{
+    display: block; /*PARA QUE TOMEN TODO EL ESPACIO DISPONIBLE*/
+    font-weight: 700;
+    text-transform: uppercase;
+}
+input:not([type="submit"]),textarea, select{
+    padding: .2rem;
+    display: block;
+    width: 100%;
+    background-color: #e1e1e1;
+    border: none;
+    border-radius: 1rem;
+}
+input[type="radio"]{
+    width: auto; /*TOMA EL ANCHO AUTOMATICO, Y NO TOMA EL 100% COMO LO SETEAMOS*/
+    margin: 0;
+}
+select{
+    -webkit-appearance: none; /*NECESARIO PARA EL ATRIBUTO DE ABAJO*/
+    appearance: none;
+}
+textarea{
+    height: 20rem;
+}
+.forma-contacto{
+    max-width: 30rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+
